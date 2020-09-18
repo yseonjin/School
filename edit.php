@@ -10,7 +10,7 @@ if(mysqli_connect_errno()){
 else{
     echo "";
 }
-$query = "select * from examtbl  where  sNo='$sno'" ;
+$query = "select * from examtbl  where  sno='$sno'" ;
 $result = mysqli_query($con,$query);
 $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )
 ?>
@@ -39,11 +39,11 @@ $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )
 <table border=1 align=center width=350 height=100>
 <tr>
 <td align=center  width=80><b>학&emsp;번</b></td><td>
-<input type=text  name=sno  value=<?=$data['sNo']?>></td>
+<input type=text  name=sno  value=<?=$data['sno']?>></td>
 </tr>
 <tr>
 <td align=center><b>성&emsp;명</b></td><td>
-<input type=text  name=sname  value=<?=$data['sName']?>></td>
+<input type=text  name=sname  value=<?=$data['sname']?>></td>
 </tr>
 <tr>
 <td align=center><b>국&emsp;어</b></td><td>
@@ -72,7 +72,7 @@ $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )
 <div align=center>
 [ 글쓰기 ]  [ 목록보기 ] 
 
-<a href="school_delete.php?sno=<?=$data['sNo']?>">[ 삭제하기 ]</a>
+<a href="school_delete.php?sno=<?=$data['sno']?>">[ 삭제하기 ]</a>
 </div>
 </section>
 <?

@@ -10,7 +10,7 @@ else{
     echo " ";
 }
 
-$query="delete from examtbl where sNo= '$sno'";
+$query="delete from examtbl where sno='$sno'";
 
 mysqli_query($con,$query);
 mysqli_close($con);

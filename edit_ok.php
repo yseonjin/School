@@ -15,7 +15,7 @@ else{
     echo "";
 }
 
-$query="update examtbl set kor=$kor, eng=$eng, math=$math, hist=$hist where sNo= '$sno'";
+$query="update examtbl set kor=$kor, eng=$eng, math=$math, hist=$hist where sno= '$sno'";
 
 mysqli_query($con,$query);
 mysqli_close($con);

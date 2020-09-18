@@ -11,18 +11,27 @@ if(mysqli_connect_errno()){
 else{
     echo "";
 }
-$query = "select * from examtbl" ;
+
+if(empty($_GET['ch2'])){$query = "select * from examtbl" ;}
+else{
+    $ch1=$_GET['ch1'];
+$ch2=$_GET['ch2'];
+    $query = "select * from examtbl where $ch1 like '%$ch2%'" ;}
 $result = mysqli_query($con,$query);
 ?>
 
         <table width="500" border="1">
             <tr>
+            <td>
+                 순번
+                </td>
                 <td>
                     번호
                 </td>
                 <td>
                     이름
                 </td>
+            
                 <td>
                     국어
                 </td>
@@ -67,13 +76,17 @@ while( $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )) {
 ?>
 
             <tr bgcolor="#FFCA98">
-                <td>
-                    <a href="edit.php?sno=<?=$data['sNo']?>">
-                        <?=$data['sNo']?>
-                    </a>
+                <td align="center" >
+                    <?=$count?>
                 </td>
                 <td>
-                    <?=$data['sName']?></td>
+                    <a href="edit.php?sno=<?=$data['sno']?>">
+                        <?=$data['sno']?>
+                    </a>
+                </td>
+        
+                <td>
+                    <?=$data['sname']?></td>
                 <td>
                     <?=$data['kor']?>
                 </td>
@@ -90,7 +103,7 @@ while( $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )) {
                     &nbsp;<?=$sum ?>
                 </td>
                 <td>
-                    <a href="school_delete.php?sno=<?=$data['sNo']?>">
+                    <a href="school_delete.php?sno=<?=$data['sno']?>">
                         &nbsp;<?=$avg ?>
                     </a>
                 </td>
@@ -99,7 +112,7 @@ while( $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )) {
    }
 ?>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     누적합
                 </td>
                 <td>
@@ -126,7 +139,7 @@ while( $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )) {
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     누적평균
                 </td>
                 <td>
@@ -156,7 +169,7 @@ while( $data = mysqli_fetch_array($result ,MYSQLI_ASSOC )) {
             </tr>
 
             <tr>
-                <td colspan="8">
+                <td colspan="9">
                     전체학생수 :
                     <?=$count?>
                 </td>
@@ -167,5 +180,14 @@ mysqli_close ($con);
 ?>
 
         </table>
+
+        <form>
+            <select name="ch1">
+                <option value="sno">학번</option>
+                <option value="sname">이름</option>
+            </select>
+            <input type="text" name="ch2">
+            <input type="submit" value="검색">
+        </form>
     </section>
     <?include('bottom.php');?>

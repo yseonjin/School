@@ -29,7 +29,7 @@ else{
     echo "connect~~!";
 }
 
-$query="insert into examtbl (sNo, sName, kor, eng, math, hist) ";
+$query="insert into examtbl (sno, sname, kor, eng, math, hist) ";
 $query= $query. " values ('$sno','$sname',$kor,$eng,$math,$hist)";
 
 mysqli_query($con,$query);

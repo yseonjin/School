@@ -51,8 +51,12 @@
     </header>   
     <nav> 
         <span id="span1">
+        &emsp; &emsp;<a href=member.php> 회원가입 </a> &emsp;&emsp;&emsp;
+        &emsp; &emsp;<a href=member_list.php>회원목록보기</a> &emsp;&emsp;&emsp;
         &emsp; &emsp;<a href=school.php>성적입력 </a> &emsp;&emsp;&emsp;
         &emsp;<a href=list.php>성적조회 </a> &emsp;&emsp;&emsp;
+        &emsp;<a href=join.php>회원성적조회 </a> &emsp;&emsp;&emsp;
+        &emsp;<a href=list1004.php>페이지나누기 </a> &emsp;&emsp;&emsp;
          &emsp;<a href=index.php>홈으로 </a>
         </span>  
     </nav>
